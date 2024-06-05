@@ -1,0 +1,732 @@
+{
+	"info": {
+		"_postman_id": "abe00067-84a4-41c9-97db-29694d3cdb84",
+		"name": "Peticiones Club Nautico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32638992"
+	},
+	"item": [
+		{
+			"name": "Socios",
+			"item": [
+				{
+					"name": "GetSocios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/socio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"socio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSocio By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/socio/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"socio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostSocio sin Barco",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Juan Antonio\",\r\n    \"apellidos\" : \"Romeo\",\r\n    \"dni\" : \"23456789A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/socio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"socio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateSocio",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\" : \"Juan Antonio\",\r\n  \"apellidos\" : \"Romeo\",\r\n  \"dni\" : \"23456789A\",\r\n  \"barco\":\r\n    {\r\n      \"nombre\": \"El Navegante\",\r\n      \"matricula\": \"ABC1234\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/socio/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"socio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostSocio con Barco",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Alberto\",\r\n    \"apellidos\" : \"Romeo\",\r\n    \"dni\" : \"23456789A\",\r\n    \"barco\": {\r\n        \"nombre\": \"El Triton\",\r\n        \"matricula\": \"ABC1234\"\r\n    }\r\n        \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/socio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"socio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteSocio",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/socio/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"socio",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Barcos",
+			"item": [
+				{
+					"name": "GetBarcos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/barco",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"barco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBarco By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/barco/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"barco",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostBarco sin Patron",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Titan\",\r\n  \"matricula\": \"9-BA-2-999-21\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/barco",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"barco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Barco By ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Poseidon\",\r\n  \"matricula\": \"9-BA-2-999-21\",\r\n  \"socio\" :{\r\n    \"socio_id\" : 1\r\n  },\r\n  \"amarre\" :{\r\n    \"amarre_id\" : 1\r\n  }\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/barco/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"barco",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostBarco con Patron",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"El Navegante\",\r\n  \"matricula\": \"ABC1234\",\r\n\r\n  \"patron\": {\r\n    \"nombre\" : \"Juan\",\r\n    \"apellidos\" : \"García\",\r\n    \"licencia\" : \"234-123-242\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/barco",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"barco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostBarco completo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Titanic 2\",\r\n  \"matricula\": \"9-BA-2-999-21\",\r\n  \"amarre\": {\r\n    \"cuota\" : \"25.5\",\r\n    \"ubicacion\" : \"C://Nautica\",\r\n    \"nombre\" : \"Tu Amarre\"\r\n  },\r\n  \"patron\": {\r\n    \"nombre\": \"Pedro\",\r\n    \"apellidos\": \"Garcia\",\r\n    \"licencia\": \"LIC123456\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/barco",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"barco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteBarco By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/barco/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"barco",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Salidas",
+			"item": [
+				{
+					"name": "GetSalidas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/salida",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"salida"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSalida By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/salida/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"salida",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostSalida",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fechaRegreso\": \"2024-06-05T18:00:00\",\r\n  \"fechaSalida\": \"2024-06-01T09:00:00\",\r\n  \"barco\": {\r\n    \"barco_id\": 1\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/salida",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"salida"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteSalida By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/salida/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"salida",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateSalida By ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patron",
+			"item": [
+				{
+					"name": "GetPatrones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/patron",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"patron"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPatron By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/patron",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"patron"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostPatron",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Pedro\",\r\n  \"apellidos\": \"Garcia\",\r\n  \"licencia\": \"LIC123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/patron",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"patron"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePatron By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/patron/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"patron",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostPatron Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Juan\",\r\n  \"apellidos\": \"Garcia\",\r\n  \"licencia\": \"LIC123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/patron/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"patron",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Amarre",
+			"item": [
+				{
+					"name": "GetAmarres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/amarre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"amarre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAmarre By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/amarre/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"amarre",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostAmarre",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuota\" : \"25.5\",\r\n    \"ubicacion\" : \"C://Nautica\",\r\n    \"nombre\" : \"Tu Amarre\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/amarre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"amarre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAmarre",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/amarre/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"amarre",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutAmarre",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cuota\" : \"21.5\",\r\n    \"ubicacion\" : \"C://Nautica\",\r\n    \"nombre\" : \"Tu Amarre\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/amarre/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"amarre",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

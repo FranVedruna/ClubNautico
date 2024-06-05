@@ -1,0 +1,436 @@
+swagger: "2.0"
+info:
+  title: Peticiones Club Nautico
+  version: "1.0.0"
+host: localhost:8081
+schemes:
+  - http
+paths:
+  /socio:
+    get:
+      summary: GetSocios
+      responses:
+        200:
+          description: OK
+    post:
+      summary: PostSocio con Barco
+      operationId: PostSocioConBarco
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                apellidos:
+                  type: string
+                dni:
+                  type: string
+                barco:
+                  type: object
+                  properties:
+                    nombre:
+                      type: string
+                    matricula:
+                      type: string
+              required:
+                - nombre
+                - apellidos
+                - dni
+                - barco
+      responses:
+        '200':
+          description: Socio creado
+  /socio/{socioId}:
+    get:
+      summary: GetSocio By ID
+      parameters:
+        - name: socioId
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+    put:
+      summary: UpdateSocio
+      consumes:
+        - application/json
+      parameters:
+        - name: socioId
+          in: path
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              nombre:
+                type: string
+              apellidos:
+                type: string
+              dni:
+                type: string
+              barco:
+                type: object
+                properties:
+                  nombre:
+                    type: string
+                  matricula:
+                    type: string
+            example:
+              nombre: "Juan Antonio"
+              apellidos: "Romeo"
+              dni: "23456789A"
+              barco:
+                nombre: "El Navegante"
+                matricula: "ABC1234"
+      responses:
+        200:
+          description: OK
+    delete:
+      summary: DeleteSocio
+      parameters:
+        - name: socioId
+          in: path
+          required: true
+          type: string
+      responses:
+        204:
+          description: No Content
+  /barco:
+    get:
+      summary: GetBarcos
+      responses:
+        200:
+          description: OK
+    post:
+      summary: PostBarco completo
+      operationId: PostBarcoCompleto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                matricula:
+                  type: string
+                patron:
+                  type: object
+                  properties:
+                    nombre:
+                      type: string
+                    apellidos:
+                      type: string
+                    licencia:
+                      type: string
+                amarre:
+                  type: object
+                  properties:
+                    cuota:
+                      type: string
+                    ubicacion:
+                      type: string
+                    nombre:
+                      type: string
+              required:
+                - nombre
+                - matricula
+                - patron
+                - amarre
+      responses:
+        '200':
+          description: Barco created
+  /barco/{barcoId}:
+    get:
+      summary: GetBarco By ID
+      parameters:
+        - name: barcoId
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+    put:
+      summary: Update Barco By ID
+      consumes:
+        - application/json
+      parameters:
+        - name: barcoId
+          in: path
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              nombre:
+                type: string
+              matricula:
+                type: string
+              socio:
+                type: object
+                properties:
+                  socio_id:
+                    type: integer
+              amarre:
+                type: object
+                properties:
+                  amarre_id:
+                    type: integer
+            example:
+              nombre: "Poseidon"
+              matricula: "9-BA-2-999-21"
+              socio:
+                socio_id: 1
+              amarre:
+                amarre_id: 1
+      responses:
+        200:
+          description: OK
+    delete:
+      summary: DeleteBarco By ID
+      parameters:
+        - name: barcoId
+          in: path
+          required: true
+          type: string
+      responses:
+        204:
+          description: No Content
+  /salida:
+    get:
+      summary: GetSalidas
+      responses:
+        200:
+          description: OK
+    post:
+      summary: PostSalida
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              fechaRegreso:
+                type: string
+                format: date-time
+              fechaSalida:
+                type: string
+                format: date-time
+              barco:
+                type: object
+                properties:
+                  barco_id:
+                    type: integer
+            example:
+              fechaRegreso: "2024-06-05T18:00:00"
+              fechaSalida: "2024-06-01T09:00:00"
+              barco:
+                barco_id: 1
+      responses:
+        201:
+          description: Created
+  /salida/{salidaId}:
+    get:
+      summary: GetSalida By ID
+      parameters:
+        - name: salidaId
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+    delete:
+      summary: DeleteSalida By ID
+      parameters:
+        - name: salidaId
+          in: path
+          required: true
+          type: string
+      responses:
+        204:
+          description: No Content
+    put:
+      summary: UpdateSalida By ID
+      parameters:
+        - name: salidaId
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+  /patron:
+    get:
+      summary: GetPatrones
+      responses:
+        200:
+          description: OK
+    post:
+      summary: PostPatron
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              nombre:
+                type: string
+              apellidos:
+                type: string
+              licencia:
+                type: string
+            example:
+              nombre: "Pedro"
+              apellidos: "Garcia"
+              licencia: "LIC123456"
+      responses:
+        201:
+          description: Created
+  /patron/{patronId}:
+    get:
+      summary: GetPatron By ID
+      parameters:
+        - name: patronId
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+    delete:
+      summary: DeletePatron By Id
+      parameters:
+        - name: patronId
+          in: path
+          required: true
+          type: string
+      responses:
+        204:
+          description: No Content
+    put:
+      summary: PostPatron Copy
+      consumes:
+        - application/json
+      parameters:
+        - name: patronId
+          in: path
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              nombre:
+                type: string
+              apellidos:
+                type: string
+              licencia:
+                type: string
+            example:
+              nombre: "Juan"
+              apellidos: "Garcia"
+              licencia: "LIC123456"
+      responses:
+        200:
+          description: OK
+  /amarre:
+    get:
+      summary: GetAmarres
+      responses:
+        200:
+          description: OK
+    post:
+      summary: PostAmarre
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              cuota:
+                type: string
+              ubicacion:
+                type: string
+              nombre:
+                type: string
+            example:
+              cuota: "25.5"
+              ubicacion: "C://Nautica"
+              nombre: "Tu Amarre"
+      responses:
+        201:
+          description: Created
+  /amarre/{amarreId}:
+    get:
+      summary: GetAmarre By Id
+      parameters:
+        - name: amarreId
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+    put:
+      summary: PutAmarre
+      consumes:
+        - application/json
+      parameters:
+        - name: amarreId
+          in: path
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              cuota:
+                type: string
+              ubicacion:
+                type: string
+              nombre:
+                type: string
+            example:
+              cuota: "21.5"
+              ubicacion: "C://Nautica"
+              nombre: "Tu Amarre"
+      responses:
+        200:
+          description: OK
+    delete:
+      summary: DeleteAmarre
+      parameters:
+        - name: amarreId
+          in: path
+          required: true
+          type: string
+      responses:
+        204:
+          description: No Content
+
